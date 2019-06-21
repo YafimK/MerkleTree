@@ -7,6 +7,8 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"math/rand"
+	"time"
 )
 
 func main() {
