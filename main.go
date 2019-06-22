@@ -65,19 +65,19 @@ func formatNodeValue(value []byte) string {
 }
 
 func printNode(mn *MerkleTree.MerkleNode, pre string, sb *strings.Builder) {
-	ch := mn.GetChildren()
-	if len(ch) == 0 {
-		sb.WriteString(fmt.Sprintf("╴%v\n", (mn.GetValue())))
+	nodeChildren := mn.GetChildren()
+	if len(nodeChildren) == 0 {
+		sb.WriteString(fmt.Sprintf("╴%v\n", "leaf"))
 		return
 	}
-	sb.WriteString(fmt.Sprintf("┐%v\n", mn.GetValue()))
-	last := len(ch) - 1
-	for _, ch := range ch[:last] {
-		sb.WriteString(fmt.Sprintf("%v %v", pre, "├─"))
+	sb.WriteString(fmt.Sprintf("┐%v\n", "node"))
+	last := len(nodeChildren) - 1
+	for _, ch := range nodeChildren[:last] {
+		sb.WriteString(fmt.Sprintf("%v%v", pre, "├─"))
 		printNode(ch, pre+"│ ", sb)
 	}
-	sb.WriteString(fmt.Sprintf("%v %v", pre, "└─"))
-	printNode(ch[last], pre+"  ", sb)
+	sb.WriteString(fmt.Sprintf("%v%v", pre, "└─"))
+	printNode(nodeChildren[last], pre+"  ", sb)
 }
 
 func PrintTree(mt *MerkleTree.MerkleTree) {
