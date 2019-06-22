@@ -75,10 +75,10 @@ var _ = Describe("MerkleTree", func() {
 		value3 := []byte("pooky")
 		value4 := []byte("tooky")
 		value5 := []byte("choky")
-		values := [][]byte{value1, value2, value3, value4, value5}
+		values := [][]byte{value1, value2, value3, value4, value5, value5, value5, value5, value5}
 		err := tree.InsertNodes(values)
 		Expect(err).ShouldNot(HaveOccurred())
-		Expect(tree.Size()).To(Equal(9))
+		Expect(tree.Size()).To(Equal(13))
 		Expect(len(tree.GetRoot().GetChildren())).To(Equal(3))
 
 		var children []byte
@@ -98,10 +98,10 @@ var _ = Describe("MerkleTree", func() {
 		value3 := []byte("pooky")
 		value4 := []byte("tooky")
 		value5 := []byte("choky")
-		values := [][]byte{value1, value2, value3, value4, value5}
+		values := [][]byte{value1, value2, value3, value4, value5, value5, value5, value5}
 		err := tree.InsertNodes(values)
 		Expect(err).ShouldNot(HaveOccurred())
-		Expect(tree.Size()).To(Equal(8))
+		Expect(tree.Size()).To(Equal(15))
 		Expect(len(tree.GetRoot().GetChildren())).To(Equal(2))
 
 		var children []byte
