@@ -34,9 +34,9 @@ func main() {
 		log.Fatalf("Encountered error inserting children to the tree: %v", err)
 	}
 
-	fmt.Printf("\nYou've requested to create a tree with %v random values, where each node has %v children, the tree has in total %v nodes\n", *treeSize, *treeNodeChildrenNumber, tree.Size())
+	fmt.Printf("\nCreated a tree with %v random values, \neach node has %v children and the tree has in total %v nodes\n", *treeSize, *treeNodeChildrenNumber, tree.Size())
 
-	fmt.Printf("The tree:\n\n\n")
+	fmt.Printf("\n\nThe tree:\n")
 	PrintTree(tree)
 	return
 }
